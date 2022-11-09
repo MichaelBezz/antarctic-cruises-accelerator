@@ -10,41 +10,43 @@
     <link rel="preload" href="./fonts/montserrat-medium.woff2" type="font/woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="./fonts/montserrat-semi-bold.woff2" type="font/woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="./fonts/montserrat-bold.woff2" type="font/woff2" as="font" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper js-exception" data-js-exception>
       <header class="header">
-        <div class="header__wrapper container">
+        <div class="header__wrapper container mobile-menu is-close" data-mobile-menu>
           <div class="header__section">
-            <a class="header__logo">
-              <img src="#" width="70" height="38" alt="Логотип «Круизы в Антарктику».">
+            <a class="header__logo mobile-menu__logo">
+              <svg width="70" height="38" role="img" aria-label="Логотип «Круизы в Антарктику».">
+                <use xlink:href="./img/sprite.svg#antarctic-cruises-logo"></use>
+              </svg>
             </a>
 
-            <button class="header__toggle" type="button">
+            <button class="header__toggle mobile-menu__toggle" type="button" data-mobile-menu-toggle>
               <span class="visually-hidden">Открыть/закрыть меню.</span>
             </button>
 
-            <nav class="header__navigation navigation">
-              <ul class="navigation__list">
+            <nav class="header__navigation navigation mobile-menu__navigation">
+              <ul class="navigation__list mobile-menu__list">
                 <li class="navigation__item">
-                  <a class="navigation__link" href="#">Преимущества</a>
+                  <a class="navigation__link" href="#advantages" data-smooth-link>Преимущества</a>
                 </li>
                 <li class="navigation__item">
-                  <a class="navigation__link" href="#">Направления</a>
+                  <a class="navigation__link" href="#journey" data-smooth-link>Направления</a>
                 </li>
                 <li class="navigation__item">
-                  <a class="navigation__link" href="#">Ближайшие круизы</a>
+                  <a class="navigation__link" href="#cruises" data-smooth-link>Ближайшие круизы</a>
                 </li>
                 <li class="navigation__item">
-                  <a class="navigation__link" href="#">Контакты</a>
+                  <a class="navigation__link" href="#contacts" data-smooth-link>Контакты</a>
                 </li>
               </ul>
             </nav>
           </div>
 
-          <section class="header__section intro">
+          <section class="header__intro intro">
             <h1 class="intro__title">Круизы в&nbsp;Антарктику</h1>
             <p class="intro__text">Волшебный мир айсбергов и пингвинов</p>
           </section>
@@ -52,7 +54,7 @@
       </header>
 
       <main>
-        <section class="journey">
+        <section class="journey" id="journey">
           <div class="journey__wrapper container">
             <div class="journey__column">
               <h2 class="journey__title">Путешествие на&nbsp;край Земли</h2>
@@ -70,7 +72,7 @@
           </div>
         </section>
 
-        <section class="advantages">
+        <section class="advantages" id="advantages">
           <div class="advantages__wrapper container">
             <h2 class="advantages__title">Преимущества</h2>
 
@@ -91,7 +93,7 @@
           </div>
         </section>
 
-        <section class="cruises">
+        <section class="cruises" id="cruises">
           <div class="cruises__wrapper container">
             <h2 class="cruises__title">Ближайшие круизы</h2>
 
@@ -340,7 +342,7 @@
           </div>
         </section>
 
-        <section class="contacts">
+        <section class="contacts" id="contacts">
           <div class="contacts__wrapper container">
             <h2 class="visually-hidden">Контакты.</h2>
 
@@ -369,16 +371,16 @@
           <div class="footer__navigation navigation">
             <ul class="navigation__list">
               <li class="navigation__item">
-                <a class="navigation__link" href="#">Преимущества</a>
+                <a class="navigation__link" href="#advantages" data-smooth-link>Преимущества</a>
               </li>
               <li class="navigation__item">
-                <a class="navigation__link" href="#">Направления</a>
+                <a class="navigation__link" href="#journey" data-smooth-link>Направления</a>
               </li>
               <li class="navigation__item">
-                <a class="navigation__link" href="#">Ближайшие круизы</a>
+                <a class="navigation__link" href="#cruises" data-smooth-link>Ближайшие круизы</a>
               </li>
               <li class="navigation__item">
-                <a class="navigation__link" href="#">Контакты</a>
+                <a class="navigation__link" href="#contacts" data-smooth-link>Контакты</a>
               </li>
             </ul>
           </div>
@@ -404,7 +406,7 @@
       </footer>
     </div>
 
-    <script src="js/vendor.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="./js/vendor.min.js"></script>
+    <script src="./js/main.min.js"></script>
   </body>
 </html>

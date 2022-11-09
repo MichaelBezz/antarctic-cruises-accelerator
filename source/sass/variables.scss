@@ -8,14 +8,25 @@ $color-default-white:               #ffffff;
 $color-transparent:                 rgba(255, 255, 255, 0);
 
 // Project palette
-// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-quartz:                      #d8d8d9;
+$color-alice-blue:                  #f9fbfd;
+$color-solitude:                    #e3ecf6;
+$color-malibu:                      #6ba9d7;
+$color-royal-blue:                  #4856df;
+$color-egyptian-blue:               #1d29a4;
+$color-prussian-blue:               #002b66;
+$color-sapphire:                    #101a56;
+$color-tangaroa:                    #011c40;
 
 // Gradient
 
-// TODO $black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+$black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
 
 // Typography
 // ---------------------------------
+
+$ff-main:                           "Montserrat", "Arial", sans-serif;
 
 // переменная используемая в html для подключения скейлинга
 $fz-default:                        16px;
@@ -23,8 +34,6 @@ $fz-default:                        16px;
 // у некоторых шрифтов в ios возникают проблемы с символом рубля
 // https://www.artlebedev.ru/kovodstvo/sections/159/#13
 $ff-rouble:                         "Rouble", "Arial", sans-serif;
-
-$ff-placeholder:                    "Placeholder", "Arial", sans-serif;
 
 // Animation
 // ---------------------------------

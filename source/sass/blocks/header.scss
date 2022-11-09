@@ -1,0 +1,125 @@
+.header {
+  min-width: 320px;
+  min-height: 650px;
+  background-color: $color-malibu;
+  background-image: url("../img/background/intro-bg-desktop.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid $color-malibu;
+  box-shadow: 0 4px 4px rgba($color-default-black, 0.25);
+
+  .js-webp-exception & {
+    background-image: url("../img/background/intro-bg-desktop.jpg");
+  }
+
+  @include vp-1023 {
+    min-height: 638px;
+    background-image: url("../img/background/intro-bg-tablet.webp");
+    border: 0;
+    box-shadow: none;
+
+    .js-webp-exception & {
+      background-image: url("../img/background/intro-bg-tablet.jpg");
+    }
+  }
+
+  @include vp-767 {
+    min-height: 500px;
+    background-image: url("../img/background/intro-bg-mobile.webp");
+
+    .js-webp-exception & {
+      background-image: url("../img/background/intro-bg-mobile.jpg");
+    }
+  }
+
+  @include retina {
+    @include vp-767 {
+      background-image: url("../img/background/intro-bg-mobile@2x.webp");
+
+      .js-webp-exception & {
+        background-image: url("../img/background/intro-bg-mobile@2x.jpg");
+      }
+    }
+
+    @include vp-1023 {
+      background-image: url("../img/background/intro-bg-tablet@2x.webp");
+
+      .js-webp-exception & {
+        background-image: url("../img/background/intro-bg-tablet@2x.jpg");
+      }
+    }
+
+    @include vp-1024 {
+      background-image: url("../img/background/intro-bg-desktop@2x.webp");
+
+      .js-webp-exception & {
+        background-image: url("../img/background/intro-bg-desktop@2x.jpg");
+      }
+    }
+  }
+}
+
+.header__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 161px;
+  padding: 30px 0;
+
+  @include vp-1023 {
+    margin-bottom: 187px;
+    padding: 20px 0;
+  }
+
+  @include vp-767 {
+    margin-bottom: 107px;
+  }
+}
+
+.header__logo {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  color: $color-alice-blue;
+
+  @include hover {
+    opacity: 0.8;
+  }
+
+  @include focus {
+    opacity: 0.6;
+  }
+
+  @include active {
+    opacity: 0.6;
+  }
+
+  @include vp-1023 {
+    margin-top: 6px;
+  }
+
+  @include vp-767 {
+    margin-top: 0;
+  }
+}
+
+.header__logo svg {
+  width: 70px;
+  height: 38px;
+
+  @include vp-1023 {
+    width: 38px;
+    height: 20px;
+  }
+
+  @include vp-767 {
+    width: 42px;
+    height: 22px;
+  }
+}
+
+.js-exception .header__section {
+  @include vp-767 {
+    margin-bottom: 0;
+  }
+}

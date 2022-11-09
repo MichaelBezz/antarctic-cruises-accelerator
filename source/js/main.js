@@ -1,5 +1,12 @@
 import {iosVhFix} from './utils/ios-vh-fix';
+import {checkWebpFormat} from './utils/webp-format';
+import {createSmoothScroll} from './utils/scroll-smooth';
+import {initializeMobileMenu} from './modules/mobile-menu';
+import {initializeLocalStorage} from './utils/local-storage';
 import {initModals} from './modules/modals/init-modals';
+
+const jsException = document.querySelector('[data-js-exception]');
+jsException.classList.remove('js-exception');
 
 // ---------------------------------
 
@@ -9,6 +16,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
+  checkWebpFormat();
+  createSmoothScroll();
+  initializeMobileMenu();
 
   // Modules
   // ---------------------------------
@@ -17,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     initModals();
+    initializeLocalStorage();
   });
 });
 
