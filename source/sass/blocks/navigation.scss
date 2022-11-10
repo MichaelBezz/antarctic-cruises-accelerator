@@ -36,11 +36,7 @@
   font-weight: 500;
   color: $color-alice-blue;
 
-  @include hover {
-    color: $color-quartz;
-  }
-
-  @include focus {
+  @include hover-focus {
     color: $color-quartz;
   }
 
