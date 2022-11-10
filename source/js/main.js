@@ -1,9 +1,8 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {checkWebpFormat} from './utils/webp-format';
+import {checkWebp} from './utils/webp-checker';
 import {createSmoothScroll} from './utils/scroll-smooth';
-import {initializeMobileMenu} from './modules/mobile-menu';
 import {initializeLocalStorage} from './utils/local-storage';
-import {initModals} from './modules/modals/init-modals';
+import {initializeMobileMenu} from './modules/mobile-menu';
 
 const jsException = document.querySelector('[data-js-exception]');
 jsException.classList.remove('js-exception');
@@ -16,17 +15,26 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
-  checkWebpFormat();
+  checkWebp();
   createSmoothScroll();
-  initializeMobileMenu();
 
   // Modules
   // ---------------------------------
 
+  const breakpoint = window.matchMedia('(max-width:767px)');
+
+  const breakpointChecker = () => {
+    if (breakpoint.matches) {
+      initializeMobileMenu();
+    }
+  };
+
+  breakpoint.addListener(breakpointChecker);
+  breakpointChecker();
+
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    initModals();
     initializeLocalStorage();
   });
 });
