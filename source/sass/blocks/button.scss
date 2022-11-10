@@ -1,26 +1,34 @@
 .button {
-  display: inline-flex;
-  padding: 10px 20px;
-
-  color: $color-default-white;
-
-  background-color: $color-default-black;
-  border: none;
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+  text-align: center;
+  color: $color-tangaroa;
+  background-color: $color-alice-blue;
+  border: 0;
+  transition: opacity $trans-default;
+  user-select: none;
   cursor: pointer;
 
-  transition: opacity $trans-default;
-
-  &--red {
-    background-color: $color-default-black;
-  }
 
   &:disabled {
     opacity: 0.5;
+    pointer-events: none;
+  }
 
+  // Использовать класс, если в качестве <button> использован тег <a>
+  &--disabled {
+    opacity: 0.4;
     pointer-events: none;
   }
 
   @include hover-focus {
     opacity: 0.8;
+  }
+
+  @include active {
+    opacity: 0.6;
   }
 }
