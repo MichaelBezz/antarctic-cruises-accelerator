@@ -56,7 +56,7 @@
       <main>
         <section class="journey" id="journey">
           <div class="journey__wrapper container">
-            <div class="journey__column">
+            <div class="journey__description">
               <h2 class="journey__title">Путешествие на&nbsp;край Земли</h2>
               <p class="journey__text">
                 Это волшебное путешествие поможет вам познакомиться поближе с&nbsp;удивительным миром Антарктики.
@@ -64,9 +64,10 @@
               </p>
             </div>
 
-            <div class="journey__column">
+            <div class="journey__image">
               <picture>
-                <img class="journey__image" src="#" width="560" height="300" alt="Пингвины, гуляющие по бескрайним снегам.">
+                <source type="image/webp" srcset="./img/background/journey-bg.webp 1x, ./img/background/journey-bg@2x.webp 2x">
+                <img src="./img/background/journey-bg.jpg" srcset="./img/background/journey-bg@2x.jpg 2x" width="560" height="300" alt="Пингвины, гуляющие по бескрайним снегам." loading="lazy">
               </picture>
             </div>
           </div>
