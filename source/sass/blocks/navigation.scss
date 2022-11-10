@@ -35,6 +35,7 @@
   line-height: 1.25;
   font-weight: 500;
   color: $color-alice-blue;
+  transition: color $trans-default;
 
   @include hover-focus {
     color: $color-quartz;
