@@ -61,9 +61,3 @@
     padding: 15px;
   }
 }
-
-.js-exception .navigation__link {
-  @include vp-767 {
-    color: $color-alice-blue;
-  }
-}
