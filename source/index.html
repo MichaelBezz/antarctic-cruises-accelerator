@@ -347,30 +347,30 @@
           <div class="booking__wrapper container">
             <div class="booking__header">
               <h2 class="booking__title">Раннее бронирование</h2>
-              <p class="booking__text">Забронируйте тур за&nbsp;3-6 месяцев до&nbsp;даты выезда и&nbsp;сэкономьте до&nbsp;50%</p>
+              <p class="booking__text">Забронируйте тур за&nbsp;3&nbsp;-&nbsp;6&nbsp;месяцев до&nbsp;даты выезда и&nbsp;сэкономьте до&nbsp;50%</p>
             </div>
 
-            <form class="booking__form form" action="https://echo.htmlacademy.ru/" method="post">
-              <p class="form__header">Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+            <form class="booking__form form" action="https://echo.htmlacademy.ru/" method="post" data-form>
+              <p class="form__header">Оставьте заявку и&nbsp;мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время</p>
 
               <p class="form__control">
-                <input id="form-name" type="text" name="name" placeholder="Имя" required>
+                <input id="form-name" type="text" name="name" placeholder="Имя" data-local-storage required>
                 <label class="visually-hidden" for="form-name">Введите Ваше имя.</label>
               </p>
               <p class="form__control">
-                <input id="form-phone" type="tel" name="phone" placeholder="Телефон" required>
+                <input id="form-phone" type="tel" name="phone" placeholder="Телефон" data-phone data-local-storage required>
                 <label class="visually-hidden" for="form-phone">Введите Ваш телефон.</label>
               </p>
               <p class="form__control">
-                <input id="form-email" type="email" name="email" placeholder="Email" required>
+                <input id="form-email" type="email" name="email" placeholder="Email" data-local-storage required>
                 <label class="visually-hidden" for="form-email">Введите Ваш Email.</label>
               </p>
-              <p class="form__control">
-                <input class="visually-hidden" id="form-consent" type="checkbox" name="consent" checked required>
-                <label for="form-consent">Я&nbsp;согласен на&nbsp;обработку моих персональных данных</label>
+              <p class="form__control form__control--checkbox">
+                <input class="visually-hidden" id="form-consent" type="checkbox" name="consent" data-local-storage checked required>
+                <label for="form-consent">Я&nbsp;согласен на&nbsp;обработку моих&nbsp;персональных данных</label>
               </p>
 
-              <button class="form__button" type="submit">Оставить заявку</button>
+              <button class="form__button button" type="submit">Оставить заявку</button>
             </form>
           </div>
         </section>
