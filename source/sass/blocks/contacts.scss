@@ -1,0 +1,124 @@
+.contacts {
+  min-width: 320px;
+}
+
+.contacts__wrapper {
+  display: grid;
+  grid-template-areas: "c-map c-section";
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  column-gap: 40px;
+  padding: 120px 60px;
+
+  @include vp-1023 {
+    column-gap: 30px;
+    padding: 100px 45px;
+  }
+
+  @include vp-767 {
+    grid-template-areas:
+      "c-section"
+      "c-map    ";
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 35px;
+    padding: 58px 15px 65px;
+  }
+}
+
+.contacts__map {
+  grid-area: c-map;
+}
+
+.contacts__map-image,
+.contacts__map-interactive {
+  min-width: 290px;
+  width: 100%;
+  height: 306px;
+  border: 0;
+  object-fit: cover;
+
+  @include vp-1023 {
+    height: 335px;
+  }
+
+  @include vp-767 {
+    height: 316px;
+  }
+}
+
+.contacts__map-image {
+  display: none;
+}
+
+.contacts__map-interactive {
+  display: block;
+}
+
+.js-exception .contacts__map-image {
+  display: block;
+}
+
+.js-exception .contacts__map-interactive {
+  display: none;
+}
+
+.contacts__section {
+  grid-area: c-section;
+  justify-self: end;
+  min-width: 290px;
+  width: 100%;
+  max-width: 500px;
+
+  @include vp-1023 {
+    justify-self: initial;
+  }
+
+  @include vp-767 {
+    justify-self: center;
+  }
+}
+
+.contacts__text {
+  margin: 0;
+  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: $color-tangaroa;
+
+  @include vp-1023 {
+    margin-bottom: 28px;
+  }
+}
+
+.contacts__item {
+  display: block;
+  padding-left: 28px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: normal;
+  color: $color-tangaroa;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: auto;
+
+  &--address {
+    background-image: url("../img/svg/address-icon.svg");
+  }
+
+  &--phone {
+    background-image: url("../img/svg/phone-icon.svg");
+    background-position: top 2px left 0;
+  }
+
+  @include vp-1023 {
+    &--address {
+      background-position: top 4px left 0;
+    }
+  }
+}
+
+.contacts__item:not(:last-child) {
+  margin-bottom: 21px;
+}
