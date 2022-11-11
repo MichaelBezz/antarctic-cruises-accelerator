@@ -3,6 +3,7 @@ import {checkWebp} from './utils/webp-checker';
 import {createSmoothScroll} from './utils/scroll-smooth';
 import {initializeLocalStorage} from './utils/local-storage';
 import {initializeMobileMenu} from './modules/mobile-menu';
+import {initializeFormValidation} from './modules/form';
 
 const jsException = document.querySelector('[data-js-exception]');
 jsException.classList.remove('js-exception');
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     initializeLocalStorage();
+    initializeFormValidation();
   });
 });
 
