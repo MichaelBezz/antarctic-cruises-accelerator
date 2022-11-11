@@ -8,10 +8,9 @@
   color: $color-tangaroa;
   background-color: $color-alice-blue;
   border: 0;
-  transition: opacity $trans-default;
+  transition: opacity, color $trans-default;
   user-select: none;
   cursor: pointer;
-
 
   &:disabled {
     opacity: 0.5;
@@ -25,10 +24,12 @@
   }
 
   @include hover-focus {
+    color: $color-malibu;
     opacity: 0.8;
   }
 
   @include active {
+    color: $color-tangaroa;
     opacity: 0.6;
   }
 }

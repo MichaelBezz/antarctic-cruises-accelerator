@@ -1,0 +1,52 @@
+.social {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30px);
+  column-gap: 16px;
+  row-gap: 10px;
+  max-width: 130px;
+  margin: 0;
+  margin-right: -5px;
+  padding: 0;
+  list-style: none;
+
+  @include vp-1023 {
+    grid-template-columns: repeat(auto-fit, 26px);
+    column-gap: 12px;
+  }
+
+  @include vp-767 {
+    margin-right: 0;
+    margin-left: -9px;
+  }
+}
+
+.social__link {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  color: $color-alice-blue;
+  transition: color $trans-default;
+
+  @include hover-focus {
+    color: $color-malibu;
+  }
+
+  @include active {
+    color: $color-quartz;
+  }
+
+  @include vp-1023 {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.social__icon {
+  height: 20px;
+  margin: auto;
+
+  @include vp-1023 {
+    height: 16px;
+  }
+}

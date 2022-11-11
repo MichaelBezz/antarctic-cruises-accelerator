@@ -402,10 +402,12 @@
       <footer class="footer">
         <div class="footer__wrapper container">
           <a class="footer__logo">
-            <img src="#" width="70" height="38" alt="Логотип «Круизы в Антарктику».">
+            <svg width="70" height="38" role="img" aria-label="Логотип «Круизы в Антарктику».">
+              <use xlink:href="./img/sprite.svg#antarctic-cruises-logo"></use>
+            </svg>
           </a>
 
-          <div class="footer__navigation navigation">
+          <div class="footer__navigation navigation navigation--footer">
             <ul class="navigation__list">
               <li class="navigation__item">
                 <a class="navigation__link" href="#">Преимущества</a>
@@ -426,16 +428,25 @@
             <li class="social__item">
               <a class="social__link" href="#">
                 <span class="visually-hidden">Наша страничка Одноклассники.</span>
+                <svg class="social__icon" width="12" height="20" aria-hidden="true" focusable="false">
+                  <use xlink:href="img/sprite.svg#ok-social"></use>
+                </svg>
               </a>
             </li>
             <li class="social__item">
               <a class="social__link" href="#">
                 <span class="visually-hidden">Наша страничка Дзен.</span>
+                <svg class="social__icon" width="20" height="20" aria-hidden="true" focusable="false">
+                  <use xlink:href="img/sprite.svg#zen-social"></use>
+                </svg>
               </a>
             </li>
             <li class="social__item">
               <a class="social__link" href="#">
                 <span class="visually-hidden">Наша страничка Reddit.</span>
+                <svg class="social__icon" width="20" height="20" aria-hidden="true" focusable="false">
+                  <use xlink:href="img/sprite.svg#reddit-social"></use>
+                </svg>
               </a>
             </li>
           </ul>

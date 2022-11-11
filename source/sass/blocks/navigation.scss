@@ -38,11 +38,11 @@
   transition: color $trans-default;
 
   @include hover-focus {
-    color: $color-quartz;
+    color: $color-malibu;
   }
 
   @include active {
-    color: $color-tangaroa;
+    color: $color-quartz;
   }
 
   @include vp-1023 {
@@ -54,6 +54,30 @@
     font-size: 18px;
     line-height: 1.22;
     color: $color-tangaroa;
+  }
+}
+
+.navigation--footer .navigation__link {
+  @include vp-1023 {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  @include vp-767 {
+    padding: 6px 0;
+    color: $color-alice-blue;
+  }
+}
+
+.navigation--footer .navigation__list {
+  @include vp-767 {
+    padding: 0;
+  }
+}
+
+.navigation--footer .navigation__item:not(:last-child) {
+  @include vp-767 {
+    margin-bottom: 5px;
   }
 }
 
