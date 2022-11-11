@@ -130,7 +130,7 @@
   }
 }
 
-.form__control--checkbox:hover {
+.form__control--checkbox:hover:not(:focus-within):not(:active) {
   opacity: 0.8;
 }
 
