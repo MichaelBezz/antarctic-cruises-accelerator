@@ -965,17 +965,44 @@ button,
   overflow: hidden;
 }
 
-.cruise:hover .cruise__hover,
-.cruise:focus-within .cruise__hover {
-  -webkit-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  transform: translateX(100%);
+.cruise::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 22px 30px;
+  background-color: #6ba9d7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.cruise:hover::after,
+.cruise:focus-within::after {
+  content: initial;
 }
 
 .cruise:hover,
 .cruise:focus-within {
   -webkit-box-shadow: 0 4px 35px rgba(1, 28, 64, 0.15);
   box-shadow: 0 4px 35px rgba(1, 28, 64, 0.15);
+}
+
+.cruise:hover .cruise__title,
+.cruise:focus-within .cruise__title {
+  position: static;
 }
 
 .cruise__card {
@@ -991,6 +1018,10 @@ button,
 }
 
 .cruise__title {
+  z-index: 1;
+  position: absolute;
+  left: 30px;
+  bottom: 2%;
   margin: 0;
   margin-bottom: 14px;
   font-size: 18px;
@@ -1031,103 +1062,67 @@ button,
   color: #d8d8d9;
 }
 
-.cruise__hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  padding: 22px 30px;
-  background-color: #6ba9d7;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-  -o-transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-.cruise__subtitle {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: #f9fbfd;
-}
-
-.cruise--astoria .cruise__hover {
+.cruise--astoria::after {
   background-image: url("../img/cruises/astoria-desktop.webp");
 }
 
-.js-webp-exception .cruise--astoria .cruise__hover {
+.js-webp-exception .cruise--astoria::after {
   background-image: url("../img/cruises/astoria-desktop.jpg");
 }
 
-.cruise--elaine .cruise__hover {
+.cruise--elaine::after {
   background-image: url("../img/cruises/elaine-desktop.webp");
 }
 
-.js-webp-exception .cruise--elaine .cruise__hover {
+.js-webp-exception .cruise--elaine::after {
   background-image: url("../img/cruises/elaine-desktop.jpg");
 }
 
-.cruise--atlantis .cruise__hover {
+.cruise--atlantis::after {
   background-image: url("../img/cruises/atlantis-desktop.webp");
 }
 
-.js-webp-exception .cruise--atlantis .cruise__hover {
+.js-webp-exception .cruise--atlantis::after {
   background-image: url("../img/cruises/atlantis-desktop.jpg");
 }
 
-.cruise--odysseus .cruise__hover {
+.cruise--odysseus::after {
   background-image: url("../img/cruises/odysseus-desktop.webp");
 }
 
-.js-webp-exception .cruise--odysseus .cruise__hover {
+.js-webp-exception .cruise--odysseus::after {
   background-image: url("../img/cruises/odysseus-desktop.jpg");
 }
 
-.cruise--olympia .cruise__hover {
+.cruise--olympia::after {
   background-image: url("../img/cruises/olympia-desktop.webp");
 }
 
-.js-webp-exception .cruise--olympia .cruise__hover {
+.js-webp-exception .cruise--olympia::after {
   background-image: url("../img/cruises/olympia-desktop.jpg");
 }
 
-.cruise--aurora .cruise__hover {
+.cruise--aurora::after {
   background-image: url("../img/cruises/aurora-desktop.webp");
 }
 
-.js-webp-exception .cruise--aurora .cruise__hover {
+.js-webp-exception .cruise--aurora::after {
   background-image: url("../img/cruises/aurora-desktop.jpg");
 }
 
-.cruise--leonor .cruise__hover {
+.cruise--leonor::after {
   background-image: url("../img/cruises/leonor-desktop.webp");
 }
 
-.js-webp-exception .cruise--leonor .cruise__hover {
+.js-webp-exception .cruise--leonor::after {
   background-image: url("../img/cruises/leonor-desktop.jpg");
 }
 
-.cruise--minion .cruise__hover {
+.cruise--minion::after {
   background-image: url("../img/cruises/minion-desktop.webp");
 }
 
-.js-webp-exception .cruise--minion .cruise__hover {
+.js-webp-exception .cruise--minion::after {
   background-image: url("../img/cruises/minion-desktop.jpg");
 }
 
@@ -1552,67 +1547,67 @@ button,
     background-image: url("../img/background/advantages-bg-desktop@2x.jpg");
   }
 
-  .cruise--astoria .cruise__hover {
+  .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--astoria .cruise__hover {
+  .js-webp-exception .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-desktop@2x.jpg");
   }
 
-  .cruise--elaine .cruise__hover {
+  .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--elaine .cruise__hover {
+  .js-webp-exception .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-desktop@2x.jpg");
   }
 
-  .cruise--atlantis .cruise__hover {
+  .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--atlantis .cruise__hover {
+  .js-webp-exception .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-desktop@2x.jpg");
   }
 
-  .cruise--odysseus .cruise__hover {
+  .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--odysseus .cruise__hover {
+  .js-webp-exception .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-desktop@2x.jpg");
   }
 
-  .cruise--olympia .cruise__hover {
+  .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--olympia .cruise__hover {
+  .js-webp-exception .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-desktop@2x.jpg");
   }
 
-  .cruise--aurora .cruise__hover {
+  .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--aurora .cruise__hover {
+  .js-webp-exception .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-desktop@2x.jpg");
   }
 
-  .cruise--leonor .cruise__hover {
+  .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--leonor .cruise__hover {
+  .js-webp-exception .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-desktop@2x.jpg");
   }
 
-  .cruise--minion .cruise__hover {
+  .cruise--minion::after {
     background-image: url("../img/cruises/minion-desktop@2x.webp");
   }
 
-  .js-webp-exception .cruise--minion .cruise__hover {
+  .js-webp-exception .cruise--minion::after {
     background-image: url("../img/cruises/minion-desktop@2x.jpg");
   }
 
@@ -1797,71 +1792,72 @@ button,
     padding: 29px 35px 34px;
   }
 
-  .cruise__hover {
-    padding: 27px 35px;
+  .cruise__title {
+    left: 35px;
+    bottom: 3%;
   }
 
-  .cruise--astoria .cruise__hover {
+  .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-tablet.webp");
   }
 
-  .js-webp-exception .cruise--astoria .cruise__hover {
+  .js-webp-exception .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-tablet.jpg");
   }
 
-  .cruise--elaine .cruise__hover {
+  .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-tablet.webp");
   }
 
-  .js-webp-exception .cruise--elaine .cruise__hover {
+  .js-webp-exception .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-tablet.jpg");
   }
 
-  .cruise--atlantis .cruise__hover {
+  .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-tablet.webp");
   }
 
-  .js-webp-exception .cruise--atlantis .cruise__hover {
+  .js-webp-exception .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-tablet.jpg");
   }
 
-  .cruise--odysseus .cruise__hover {
+  .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-tablet.webp");
   }
 
-  .js-webp-exception .cruise--odysseus .cruise__hover {
+  .js-webp-exception .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-tablet.jpg");
   }
 
-  .cruise--olympia .cruise__hover {
+  .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-tablet.webp");
   }
 
-  .js-webp-exception .cruise--olympia .cruise__hover {
+  .js-webp-exception .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-tablet.jpg");
   }
 
-  .cruise--aurora .cruise__hover {
+  .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-tablet.webp");
   }
 
-  .js-webp-exception .cruise--aurora .cruise__hover {
+  .js-webp-exception .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-tablet.jpg");
   }
 
-  .cruise--leonor .cruise__hover {
+  .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-tablet.webp");
   }
 
-  .js-webp-exception .cruise--leonor .cruise__hover {
+  .js-webp-exception .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-tablet.jpg");
   }
 
-  .cruise--minion .cruise__hover {
+  .cruise--minion::after {
     background-image: url("../img/cruises/minion-tablet.webp");
   }
 
-  .js-webp-exception .cruise--minion .cruise__hover {
+  .js-webp-exception .cruise--minion::after {
     background-image: url("../img/cruises/minion-tablet.jpg");
   }
 
@@ -1980,67 +1976,67 @@ button,
     background-image: url("../img/background/advantages-bg-tablet@2x.jpg");
   }
 
-  .cruise--astoria .cruise__hover {
+  .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--astoria .cruise__hover {
+  .js-webp-exception .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-tablet@2x.jpg");
   }
 
-  .cruise--elaine .cruise__hover {
+  .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--elaine .cruise__hover {
+  .js-webp-exception .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-tablet@2x.jpg");
   }
 
-  .cruise--atlantis .cruise__hover {
+  .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--atlantis .cruise__hover {
+  .js-webp-exception .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-tablet@2x.jpg");
   }
 
-  .cruise--odysseus .cruise__hover {
+  .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--odysseus .cruise__hover {
+  .js-webp-exception .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-tablet@2x.jpg");
   }
 
-  .cruise--olympia .cruise__hover {
+  .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--olympia .cruise__hover {
+  .js-webp-exception .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-tablet@2x.jpg");
   }
 
-  .cruise--aurora .cruise__hover {
+  .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--aurora .cruise__hover {
+  .js-webp-exception .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-tablet@2x.jpg");
   }
 
-  .cruise--leonor .cruise__hover {
+  .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--leonor .cruise__hover {
+  .js-webp-exception .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-tablet@2x.jpg");
   }
 
-  .cruise--minion .cruise__hover {
+  .cruise--minion::after {
     background-image: url("../img/cruises/minion-tablet@2x.webp");
   }
 
-  .js-webp-exception .cruise--minion .cruise__hover {
+  .js-webp-exception .cruise--minion::after {
     background-image: url("../img/cruises/minion-tablet@2x.jpg");
   }
 
@@ -2318,71 +2314,72 @@ button,
     padding: 29px 25px 34px;
   }
 
-  .cruise__hover {
-    padding: 17px 25px;
+  .cruise__title {
+    left: 25px;
+    bottom: 1%;
   }
 
-  .cruise--astoria .cruise__hover {
+  .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-mobile.webp");
   }
 
-  .js-webp-exception .cruise--astoria .cruise__hover {
+  .js-webp-exception .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-mobile.jpg");
   }
 
-  .cruise--elaine .cruise__hover {
+  .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-mobile.webp");
   }
 
-  .js-webp-exception .cruise--elaine .cruise__hover {
+  .js-webp-exception .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-mobile.jpg");
   }
 
-  .cruise--atlantis .cruise__hover {
+  .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-mobile.webp");
   }
 
-  .js-webp-exception .cruise--atlantis .cruise__hover {
+  .js-webp-exception .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-mobile.jpg");
   }
 
-  .cruise--odysseus .cruise__hover {
+  .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-mobile.webp");
   }
 
-  .js-webp-exception .cruise--odysseus .cruise__hover {
+  .js-webp-exception .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-mobile.jpg");
   }
 
-  .cruise--olympia .cruise__hover {
+  .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-mobile.webp");
   }
 
-  .js-webp-exception .cruise--olympia .cruise__hover {
+  .js-webp-exception .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-mobile.jpg");
   }
 
-  .cruise--aurora .cruise__hover {
+  .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-mobile.webp");
   }
 
-  .js-webp-exception .cruise--aurora .cruise__hover {
+  .js-webp-exception .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-mobile.jpg");
   }
 
-  .cruise--leonor .cruise__hover {
+  .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-mobile.webp");
   }
 
-  .js-webp-exception .cruise--leonor .cruise__hover {
+  .js-webp-exception .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-mobile.jpg");
   }
 
-  .cruise--minion .cruise__hover {
+  .cruise--minion::after {
     background-image: url("../img/cruises/minion-mobile.webp");
   }
 
-  .js-webp-exception .cruise--minion .cruise__hover {
+  .js-webp-exception .cruise--minion::after {
     background-image: url("../img/cruises/minion-mobile.jpg");
   }
 
@@ -2518,67 +2515,67 @@ button,
     background-image: url("../img/background/advantages-bg-mobile@2x.jpg");
   }
 
-  .cruise--astoria .cruise__hover {
+  .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--astoria .cruise__hover {
+  .js-webp-exception .cruise--astoria::after {
     background-image: url("../img/cruises/astoria-mobile@2x.jpg");
   }
 
-  .cruise--elaine .cruise__hover {
+  .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--elaine .cruise__hover {
+  .js-webp-exception .cruise--elaine::after {
     background-image: url("../img/cruises/elaine-mobile@2x.jpg");
   }
 
-  .cruise--atlantis .cruise__hover {
+  .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--atlantis .cruise__hover {
+  .js-webp-exception .cruise--atlantis::after {
     background-image: url("../img/cruises/atlantis-mobile@2x.jpg");
   }
 
-  .cruise--odysseus .cruise__hover {
+  .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--odysseus .cruise__hover {
+  .js-webp-exception .cruise--odysseus::after {
     background-image: url("../img/cruises/odysseus-mobile@2x.jpg");
   }
 
-  .cruise--olympia .cruise__hover {
+  .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--olympia .cruise__hover {
+  .js-webp-exception .cruise--olympia::after {
     background-image: url("../img/cruises/olympia-mobile@2x.jpg");
   }
 
-  .cruise--aurora .cruise__hover {
+  .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--aurora .cruise__hover {
+  .js-webp-exception .cruise--aurora::after {
     background-image: url("../img/cruises/aurora-mobile@2x.jpg");
   }
 
-  .cruise--leonor .cruise__hover {
+  .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--leonor .cruise__hover {
+  .js-webp-exception .cruise--leonor::after {
     background-image: url("../img/cruises/leonor-mobile@2x.jpg");
   }
 
-  .cruise--minion .cruise__hover {
+  .cruise--minion::after {
     background-image: url("../img/cruises/minion-mobile@2x.webp");
   }
 
-  .js-webp-exception .cruise--minion .cruise__hover {
+  .js-webp-exception .cruise--minion::after {
     background-image: url("../img/cruises/minion-mobile@2x.jpg");
   }
 

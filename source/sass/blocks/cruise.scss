@@ -1,16 +1,38 @@
 .cruise {
   position: relative;
   overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 22px 30px;
+    background-color: $color-malibu;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
 }
 
-.cruise:hover .cruise__hover,
-.cruise:focus-within .cruise__hover {
-  transform: translateX(100%);
+.cruise:hover::after,
+.cruise:focus-within::after {
+  content: initial;
 }
 
 .cruise:hover,
 .cruise:focus-within {
   box-shadow: 0 4px 35px rgba($color-tangaroa, 0.15);
+}
+
+.cruise:hover .cruise__title,
+.cruise:focus-within .cruise__title {
+  position: static;
 }
 
 .cruise__card {
@@ -31,12 +53,26 @@
 }
 
 .cruise__title {
+  z-index: 1;
+  position: absolute;
+  left: 30px;
+  bottom: 2%;
   margin: 0;
   margin-bottom: 14px;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 500;
   color: $color-alice-blue;
+
+  @include vp-1023 {
+    left: 35px;
+    bottom: 3%;
+  }
+
+  @include vp-767 {
+    left: 25px;
+    bottom: 1%;
+  }
 }
 
 .cruise__description {
@@ -66,42 +102,9 @@
   color: $color-quartz;
 }
 
-.cruise__hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  padding: 22px 30px;
-  background-color: $color-malibu;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transition: transform $trans-card;
-
-  @include vp-1023 {
-    padding: 27px 35px;
-  }
-
-  @include vp-767 {
-    padding: 17px 25px;
-  }
-}
-
-.cruise__subtitle {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: $color-alice-blue;
-}
-
 // Установка изображений
 
-.cruise--astoria .cruise__hover {
+.cruise--astoria::after {
   background-image: url("../img/cruises/astoria-desktop.webp");
 
   .js-webp-exception & {
@@ -151,7 +154,7 @@
   }
 }
 
-.cruise--elaine .cruise__hover {
+.cruise--elaine::after {
   background-image: url("../img/cruises/elaine-desktop.webp");
 
   .js-webp-exception & {
@@ -201,7 +204,7 @@
   }
 }
 
-.cruise--atlantis .cruise__hover {
+.cruise--atlantis::after {
   background-image: url("../img/cruises/atlantis-desktop.webp");
 
   .js-webp-exception & {
@@ -251,7 +254,7 @@
   }
 }
 
-.cruise--odysseus .cruise__hover {
+.cruise--odysseus::after {
   background-image: url("../img/cruises/odysseus-desktop.webp");
 
   .js-webp-exception & {
@@ -301,7 +304,7 @@
   }
 }
 
-.cruise--olympia .cruise__hover {
+.cruise--olympia::after {
   background-image: url("../img/cruises/olympia-desktop.webp");
 
   .js-webp-exception & {
@@ -351,7 +354,7 @@
   }
 }
 
-.cruise--aurora .cruise__hover {
+.cruise--aurora::after {
   background-image: url("../img/cruises/aurora-desktop.webp");
 
   .js-webp-exception & {
@@ -401,7 +404,7 @@
   }
 }
 
-.cruise--leonor .cruise__hover {
+.cruise--leonor::after {
   background-image: url("../img/cruises/leonor-desktop.webp");
 
   .js-webp-exception & {
@@ -451,7 +454,7 @@
   }
 }
 
-.cruise--minion .cruise__hover {
+.cruise--minion::after {
   background-image: url("../img/cruises/minion-desktop.webp");
 
   .js-webp-exception & {
