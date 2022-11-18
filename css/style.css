@@ -804,13 +804,14 @@ button,
   display: grid;
   -ms-grid-columns: (minmax(324px, 560px))[2];
   grid-template-columns: repeat(2, minmax(324px, 560px));
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-column-gap: 40px;
   -moz-column-gap: 40px;
   column-gap: 40px;
   padding: 120px 60px 145px;
+}
+
+.journey__description {
+  margin-top: 56px;
 }
 
 .journey__title {
@@ -942,8 +943,8 @@ button,
 .cruises__list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(220px, 260px))[4];
-  grid-template-columns: repeat(4, minmax(220px, 260px));
+  -ms-grid-columns: (minmax(220px, 1fr))[4];
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -957,12 +958,18 @@ button,
 }
 
 .cruises__item {
-  min-height: 386px;
+  height: 386px;
 }
 
 .cruise {
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cruise::-webkit-scrollbar {
+  display: none;
 }
 
 .cruise::after {
@@ -989,15 +996,15 @@ button,
   background-size: cover;
 }
 
-.cruise:hover::after,
-.cruise:focus-within::after {
-  content: initial;
-}
-
 .cruise:hover,
 .cruise:focus-within {
   -webkit-box-shadow: 0 4px 35px rgba(1, 28, 64, 0.15);
   box-shadow: 0 4px 35px rgba(1, 28, 64, 0.15);
+}
+
+.cruise:hover::after,
+.cruise:focus-within::after {
+  content: initial;
 }
 
 .cruise:hover .cruise__title,
@@ -1294,6 +1301,7 @@ button,
   position: relative;
   display: block;
   padding: 3px 1px 2px 23px;
+  cursor: pointer;
 }
 
 .form__control--checkbox label::before {
@@ -1696,9 +1704,6 @@ button,
   }
 
   .journey__wrapper {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: start;
     -webkit-column-gap: 20px;
     -moz-column-gap: 20px;
     column-gap: 20px;
@@ -1779,8 +1784,8 @@ button,
   }
 
   .cruises__list {
-    -ms-grid-columns: (minmax(309px, 350px))[2];
-    grid-template-columns: repeat(2, minmax(309px, 350px));
+    -ms-grid-columns: (minmax(309px, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(309px, 1fr));
     -webkit-column-gap: 30px;
     -moz-column-gap: 30px;
     column-gap: 30px;
@@ -2307,7 +2312,8 @@ button,
   }
 
   .cruises__list {
-    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 0 10px;
   }
 
   .cruise__card {
@@ -2317,70 +2323,6 @@ button,
   .cruise__title {
     left: 25px;
     bottom: 1%;
-  }
-
-  .cruise--astoria::after {
-    background-image: url("../img/cruises/astoria-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--astoria::after {
-    background-image: url("../img/cruises/astoria-mobile.jpg");
-  }
-
-  .cruise--elaine::after {
-    background-image: url("../img/cruises/elaine-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--elaine::after {
-    background-image: url("../img/cruises/elaine-mobile.jpg");
-  }
-
-  .cruise--atlantis::after {
-    background-image: url("../img/cruises/atlantis-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--atlantis::after {
-    background-image: url("../img/cruises/atlantis-mobile.jpg");
-  }
-
-  .cruise--odysseus::after {
-    background-image: url("../img/cruises/odysseus-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--odysseus::after {
-    background-image: url("../img/cruises/odysseus-mobile.jpg");
-  }
-
-  .cruise--olympia::after {
-    background-image: url("../img/cruises/olympia-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--olympia::after {
-    background-image: url("../img/cruises/olympia-mobile.jpg");
-  }
-
-  .cruise--aurora::after {
-    background-image: url("../img/cruises/aurora-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--aurora::after {
-    background-image: url("../img/cruises/aurora-mobile.jpg");
-  }
-
-  .cruise--leonor::after {
-    background-image: url("../img/cruises/leonor-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--leonor::after {
-    background-image: url("../img/cruises/leonor-mobile.jpg");
-  }
-
-  .cruise--minion::after {
-    background-image: url("../img/cruises/minion-mobile.webp");
-  }
-
-  .js-webp-exception .cruise--minion::after {
-    background-image: url("../img/cruises/minion-mobile.jpg");
   }
 
   .booking {
@@ -2513,70 +2455,6 @@ button,
 
   .js-webp-exception .advantages {
     background-image: url("../img/background/advantages-bg-mobile@2x.jpg");
-  }
-
-  .cruise--astoria::after {
-    background-image: url("../img/cruises/astoria-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--astoria::after {
-    background-image: url("../img/cruises/astoria-mobile@2x.jpg");
-  }
-
-  .cruise--elaine::after {
-    background-image: url("../img/cruises/elaine-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--elaine::after {
-    background-image: url("../img/cruises/elaine-mobile@2x.jpg");
-  }
-
-  .cruise--atlantis::after {
-    background-image: url("../img/cruises/atlantis-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--atlantis::after {
-    background-image: url("../img/cruises/atlantis-mobile@2x.jpg");
-  }
-
-  .cruise--odysseus::after {
-    background-image: url("../img/cruises/odysseus-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--odysseus::after {
-    background-image: url("../img/cruises/odysseus-mobile@2x.jpg");
-  }
-
-  .cruise--olympia::after {
-    background-image: url("../img/cruises/olympia-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--olympia::after {
-    background-image: url("../img/cruises/olympia-mobile@2x.jpg");
-  }
-
-  .cruise--aurora::after {
-    background-image: url("../img/cruises/aurora-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--aurora::after {
-    background-image: url("../img/cruises/aurora-mobile@2x.jpg");
-  }
-
-  .cruise--leonor::after {
-    background-image: url("../img/cruises/leonor-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--leonor::after {
-    background-image: url("../img/cruises/leonor-mobile@2x.jpg");
-  }
-
-  .cruise--minion::after {
-    background-image: url("../img/cruises/minion-mobile@2x.webp");
-  }
-
-  .js-webp-exception .cruise--minion::after {
-    background-image: url("../img/cruises/minion-mobile@2x.jpg");
   }
 
   .booking {
