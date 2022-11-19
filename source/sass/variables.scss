@@ -20,6 +20,10 @@ $color-prussian-blue:               #002b66;
 $color-sapphire:                    #101a56;
 $color-tangaroa:                    #011c40;
 
+// Gradient
+
+$black-to-bottom:                    linear-gradient(180deg, rgba($color-tangaroa, 0) 50%, $color-tangaroa 100%);
+
 // Typography
 // ---------------------------------
 

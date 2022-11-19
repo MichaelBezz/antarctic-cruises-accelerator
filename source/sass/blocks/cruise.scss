@@ -1,88 +1,139 @@
 .cruise {
   position: relative;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
+  &::before {
     content: "";
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100%;
-    padding: 22px 30px;
-    background-color: $color-malibu;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    display: block;
+    padding-top: 148.6%;
   }
 
   &:hover,
   &:focus-within {
     box-shadow: 0 4px 35px rgba($color-tangaroa, 0.15);
   }
+
+  @include vp-1023 {
+    &::before {
+      padding-top: 125%;
+    }
+  }
+
+  @include vp-767 {
+    &::before {
+      padding-top: 143%;
+    }
+  }
 }
 
-.cruise:hover::after,
-.cruise:focus-within::after {
-  content: initial;
+.cruise:hover .cruise__hover,
+.cruise:focus-within .cruise__hover {
+  grid-template-rows: auto 1fr auto;
+  padding: 29px 25px 35px;
+  background-color: $color-tangaroa;
+
+  @include vp-1279 {
+    padding: 25px;
+  }
+
+  @include vp-1023 {
+    padding: 29px 35px 35px;
+  }
+
+  @include vp-767 {
+    padding: 29px 25px 35px;
+  }
 }
 
 .cruise:hover .cruise__title,
 .cruise:focus-within .cruise__title {
-  position: static;
+  align-self: initial;
+  margin-bottom: 14px;
+}
+
+.cruise:hover .cruise__description,
+.cruise:focus-within .cruise__description {
+  display: block;
+}
+
+.cruise:hover .cruise__link,
+.cruise:focus-within .cruise__link {
+  display: block;
 }
 
 .cruise__card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: $black-to-bottom;
+  }
+}
+
+.cruise__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cruise__hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100%;
-  padding: 29px 25px 34px;
-  background-color: $color-tangaroa;
+  padding: 23px 30px;
+  background-color: $color-transparent;
+
+  @include vp-1279 {
+    padding: 25px;
+  }
 
   @include vp-1023 {
-    padding: 29px 35px 34px;
+    padding: 27px 35px;
   }
 
   @include vp-767 {
-    padding: 29px 25px 34px;
+    padding: 17px 25px;
   }
 }
 
 .cruise__title {
-  z-index: 1;
-  position: absolute;
-  left: 30px;
-  bottom: 2%;
+  align-self: end;
   margin: 0;
-  margin-bottom: 14px;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 500;
   color: $color-alice-blue;
-
-  @include vp-1023 {
-    left: 35px;
-    bottom: 3%;
-  }
-
-  @include vp-767 {
-    left: 25px;
-    bottom: 1%;
-  }
 }
 
 .cruise__description {
+  display: none;
   margin: 0;
+  margin-bottom: 14px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-quartz;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px $color-malibu;
+  }
 }
 
 .cruise__description-item {
@@ -94,290 +145,20 @@
   margin-bottom: 13px;
 }
 
-.cruise__description-property {
+.cruise__description-item dt {
   font-size: 14px;
   line-height: 1.4;
   font-weight: 500;
   color: $color-alice-blue;
 }
 
-.cruise__description-value {
+.cruise__description-item dd {
   margin: 0;
   font-size: 14px;
   line-height: 1.4;
   color: $color-quartz;
 }
 
-// Установка изображений
-
-.cruise--astoria::after {
-  background-image: url("../img/cruises/astoria-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/astoria-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/astoria-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/astoria-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/astoria-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/astoria-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/astoria-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/astoria-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--elaine::after {
-  background-image: url("../img/cruises/elaine-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/elaine-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/elaine-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/elaine-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/elaine-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/elaine-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/elaine-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/elaine-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--atlantis::after {
-  background-image: url("../img/cruises/atlantis-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/atlantis-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/atlantis-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/atlantis-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/atlantis-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/atlantis-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/atlantis-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/atlantis-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--odysseus::after {
-  background-image: url("../img/cruises/odysseus-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/odysseus-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/odysseus-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/odysseus-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/odysseus-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/odysseus-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/odysseus-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/odysseus-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--olympia::after {
-  background-image: url("../img/cruises/olympia-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/olympia-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/olympia-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/olympia-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/olympia-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/olympia-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/olympia-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/olympia-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--aurora::after {
-  background-image: url("../img/cruises/aurora-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/aurora-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/aurora-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/aurora-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/aurora-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/aurora-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/aurora-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/aurora-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--leonor::after {
-  background-image: url("../img/cruises/leonor-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/leonor-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/leonor-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/leonor-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/leonor-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/leonor-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/leonor-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/leonor-desktop@2x.jpg");
-      }
-    }
-  }
-}
-
-.cruise--minion::after {
-  background-image: url("../img/cruises/minion-desktop.webp");
-
-  .js-webp-exception & {
-    background-image: url("../img/cruises/minion-desktop.jpg");
-  }
-
-  @include vp-1023 {
-    background-image: url("../img/cruises/minion-tablet.webp");
-
-    .js-webp-exception & {
-      background-image: url("../img/cruises/minion-tablet.jpg");
-    }
-  }
-
-  @include retina {
-    @include vp-1023 {
-      background-image: url("../img/cruises/minion-tablet@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/minion-tablet@2x.jpg");
-      }
-    }
-
-    @include vp-1024 {
-      background-image: url("../img/cruises/minion-desktop@2x.webp");
-
-      .js-webp-exception & {
-        background-image: url("../img/cruises/minion-desktop@2x.jpg");
-      }
-    }
-  }
+.cruise__link {
+  display: none;
 }
