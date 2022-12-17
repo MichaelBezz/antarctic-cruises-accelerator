@@ -7,7 +7,7 @@
 
 ### Демонстрация проекта:
 
-["Antarctic Cruises"](https://michaelbezz.github.io/782277-antarctic-cruises/) - Круизы в Антарктику.
+["Antarctic Cruises"](https://michaelbezz.github.io/antarctic-cruises-accelerator/) - Круизы в Антарктику.
 
 ---
 
